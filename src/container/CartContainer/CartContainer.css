@@ -1,0 +1,8 @@
+.cartContainer {
+    min-height: 70vh
+}
+
+.deleteBtn {
+    max-width: 30rem;
+    margin: auto;
+}

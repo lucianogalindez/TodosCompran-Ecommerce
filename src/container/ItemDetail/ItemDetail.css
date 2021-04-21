@@ -1,0 +1,16 @@
+.container-itemDetail {
+    min-height: 70vh;
+}
+
+.card-itemDetail {
+    border: none;
+}
+
+.product {
+    background-color: #eee;
+}
+
+.act-price {
+    color: blue;
+    font-weight: 700
+}

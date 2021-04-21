@@ -1,0 +1,26 @@
+
+.plus {
+    font-size: 2rem;
+    color: rgb(84, 84, 139);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.plus:hover {
+    color: rgb(0, 4, 228);
+}
+
+.counter__item {
+    width: 10rem;
+}
+
+.counter__input {
+    border: none;
+    outline: none;
+    width: 4rem;
+    text-align: center;
+}
+
+.boton{
+    border-radius: 100px;
+}
