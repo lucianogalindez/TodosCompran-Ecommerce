@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../../context/UserContext'
 import CartWidget from '../CartWidget/CartWidget'
 import './Navbar.css'
 
 const Navbar = () => {
+
+    const { user, signOut } = useContext(UserContext)
+
     return (
 
         <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#e3f2fd'}}>
@@ -33,9 +37,22 @@ const Navbar = () => {
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <Link to='/login' className='text-decoration-none'>
-                                <span className="nav-link" aria-current="page">Ingresar</span>
-                            </Link>
+                            {
+                                user.active ? (
+                                    <span 
+                                        className="nav-link" 
+                                        aria-current="page" 
+                                        onClick={signOut}
+                                        style={{cursor: 'pointer'}}
+                                    >
+                                        Salir
+                                    </span>
+                                ) : (
+                                    <Link to='/login' className='text-decoration-none'>
+                                        <span className="nav-link" aria-current="page">Ingresar</span>
+                                    </Link>
+                                )
+                            }
                         </li>
                         <li className="nav-item">
                             <Link to='/cart'><span className="nav-link"><CartWidget/></span></Link>

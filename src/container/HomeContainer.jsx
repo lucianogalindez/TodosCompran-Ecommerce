@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Carousel from '../component/Carousel/Carousel'
 import ItemList from '../component/ItemList/ItemList'
+import { UserContext } from '../context/UserContext'
 
 import './HomeContainer.css'
 
 const HomeContainer = ({setLocation}) => {
+
+    const {user} = useContext(UserContext)
 
     useEffect(() => {
         setLocation(window.location.pathname)
@@ -17,10 +20,14 @@ const HomeContainer = ({setLocation}) => {
 
             <div className='container container-home'>
 
-            <h2 className='text-center text-muted display-6 mt-4 mb-3'>
-                ¿Qué estas buscando?
-            </h2>
-            <ItemList/>
+                {
+                    user.active && <h6 className='mt-4 text-muted'>Bienvenido/a de vuelta, {user.name}</h6>
+                }    
+
+                <h2 className='text-center text-muted display-6 mt-4 mb-3'>
+                    ¿Qué estas buscando?
+                </h2>
+                <ItemList/>
 
             </div>
 
