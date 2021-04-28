@@ -1,0 +1,39 @@
+.cardItem {
+    border-radius: 10px;
+}
+
+.buttonCart {
+    background: none;
+    margin: 5px 10px;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 3px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.buttonCart:hover {
+    background: #288ed3;
+    color: white;
+}
+
+.buttonCartDelete {
+    background: none;
+    margin: 5px 10px;
+    text-align: center;
+    border: 2px solid #db344a;
+    padding: 10px 3px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.buttonCartDelete:hover {
+    background-color:  #db344a;
+    color: white;
+}

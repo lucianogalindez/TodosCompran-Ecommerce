@@ -68,25 +68,29 @@ const ItemList = () => {
 
             {
                 products.map(item => (
-                    <Link to={`/producto/${item.id}`} key={item.id} className='text-dark text-decoration-none'>
-                    <div className='col'>
-                        <div className='card'>
-                            <img src={item.image} alt={item.name} height='200' className='card-img-top' style={{objectFit: 'contain'}}/>
+                    
+                    <div className='col mt-4' key={item.id}>
+                        <Link to={`/producto/${item.id}`} className='text-dark text-decoration-none '>
+                            <div className='card cardItem'>
+                                <img src={item.image} alt={item.name} height='200' className='card-img-top' style={{objectFit: 'contain'}}/>
 
-                            <div className='card-body' style={{backgroundColor: '#e3f2fd'}}>
-                                <h5 className='card-title'>{item.name}</h5>
-                                <div className='d-flex flex-column'>
-                                    <div className='d-flex align-items-center justify-content-between'>
-                                        <p className='font-weight-bold'>$ {item.price}</p>
-                                        <span className='small h5'>Stock: {item.stock}</span>
+                                <div className='card-body' style={{backgroundColor: '#F5F5F5'}}>
+                                    <h5 className='card-title text-muted'>{item.name}</h5>
+                                    <div className='d-flex flex-column'>
+                                        <div className='d-flex align-items-center justify-content-between'>
+                                            <p className='font-weight-bold'>$ {item.price}</p>
+                                            <span className='small h5'>Stock: {item.stock}</span>
+                                        </div>
+                                        <button type='button' className='buttonCart'/* 'btn btn-primary btn-sm btn-cart' */>
+                                            Agregar al carrito
+                                        </button>
                                     </div>
-                                    <button className='btn btn-primary btn-sm btn-cart'>Agregar al carrito</button>
                                 </div>
+                                
                             </div>
-                            
-                        </div>
+                        </Link>
                     </div>
-                    </Link>
+                    
                 ))
             }
             

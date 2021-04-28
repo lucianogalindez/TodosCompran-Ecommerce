@@ -7,18 +7,19 @@ import {
 import Footer from './component/Footer/Footer';
 import Navbar from './component/Navbar/Navbar';
 import CartContainer from './container/CartContainer/CartContainer';
+import CheckoutContainer from './container/CheckoutContainer/CheckoutContainer';
 import HomeContainer from './container/HomeContainer';
 import ItemDetail from './container/ItemDetail/ItemDetail';
 import LoginContainer from './container/LoginContainer/LoginContainer';
 
 function App(props) {
 
-  const [location, setLocation] = useState('')
+  const [actualLocation, setActualLocation] = useState('')
 
   useEffect(() => {
     
     const getLocation = (path) => {
-      setLocation(path)
+      setActualLocation(path)
     }
 
     getLocation(window.location.pathname)
@@ -30,31 +31,36 @@ function App(props) {
     <Router>
       
       {
-        location !== '/login' && <Navbar/>
+        actualLocation !== '/login' && <Navbar/>
       }
     
       <Switch>
 
         <Route path='/' exact>
-          <HomeContainer setLocation={setLocation}/>
+          <HomeContainer setActualLocation={setActualLocation}/>
         </Route>
 
         <Route path='/producto/:id'>
           <ItemDetail/>
         </Route>
 
-        <Route path='/login'>
-          <LoginContainer setLocation={setLocation}/>
+        <Route 
+          path='/login' 
+          component={(props) => <LoginContainer {...props} setActualLocation={setActualLocation}/>}
+        >
         </Route>
 
-        <Route path='/cart'>
-          <CartContainer/>
-        </Route>
+        <Route path='/cart' component={CartContainer}></Route>
+
+        <Route 
+          path='/shipping' 
+          component={(props) => <CheckoutContainer {...props} setActualLocation={setActualLocation}/>} 
+        ></Route>
 
       </Switch>
 
       {
-        location !== '/login' && <Footer/>
+        actualLocation !== '/login' && <Footer/>
       }
       
     </Router>

@@ -21,6 +21,8 @@
     text-align: center;
 }
 
-.boton{
-    border-radius: 100px;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

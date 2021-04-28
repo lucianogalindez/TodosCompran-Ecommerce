@@ -3,7 +3,9 @@ import { Link, useHistory } from 'react-router-dom'
 import { UserContext } from '../../context/UserContext'
 import './LoginContainer.css'
 
-const LoginContainer = ({setLocation}) => {
+const LoginContainer = (props) => {
+    
+    const redirect = props.location.search ? props.location.search.split('=')[1] : '/'
 
     const {registerUser, loginUser, user, loadingUser} = useContext(UserContext)
 
@@ -16,13 +18,13 @@ const LoginContainer = ({setLocation}) => {
     const history = useHistory()
 
     useEffect(() => {
-        setLocation(window.location.pathname)
+        props.setActualLocation(window.location.pathname)
 
         if (user.active) {
-            history.push('/')
+            history.push(redirect)
         }
 
-    }, [setLocation, history, user.active])
+    }, [props, history, user.active, redirect])
 
     const login = (e) => {
         e.preventDefault()

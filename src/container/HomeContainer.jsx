@@ -5,12 +5,12 @@ import { UserContext } from '../context/UserContext'
 
 import './HomeContainer.css'
 
-const HomeContainer = ({setLocation}) => {
+const HomeContainer = ({setActualLocation}) => {
 
     const {user} = useContext(UserContext)
 
     useEffect(() => {
-        setLocation(window.location.pathname)
+        setActualLocation(window.location.pathname)
     })
 
     return (

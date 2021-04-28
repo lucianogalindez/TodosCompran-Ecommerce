@@ -5,20 +5,20 @@ import './Counter.css'
 
 const Counter = ({product, setInCart, inCart}) => {
 
-    const [qty, setQty] = useState(0)
+    const [qty, setQty] = useState('')
 
     const {addToCart} = useContext(TiendaContext)
 
     const addItem = () => {
-
-        setQty(prev => prev + 1)
-
+        if (qty < product.stock) {
+            setQty(Number(qty) + 1)
+        }
     }
 
     const removeItem = () => {
 
         if(qty > 0) {
-            setQty(prev => prev - 1)
+            setQty(Number(qty) - 1)
         }
 
     }
@@ -45,6 +45,8 @@ const Counter = ({product, setInCart, inCart}) => {
 
                         <input 
                             className='counter__input'
+                            type='number'
+                            placeholder='0'
                             value={qty}
                             onChange={e => setQty(e.target.value)}
                         ></input>
@@ -65,14 +67,14 @@ const Counter = ({product, setInCart, inCart}) => {
                             <>
                             <Link to='/cart'>
                             <button
-                                className='btn btn-primary text-uppercase mr-2 my-2 px-4 w-100 boton'
+                                className='buttonCart w-100 m-0 mb-2'/* 'btn btn-primary text-uppercase mr-2 my-2 px-4 w-100 boton' */
                             >
                                 Finalizar Compra
                             </button>
                             </Link>
                             <Link to='/'>
                                 <button
-                                    className='btn btn-secondary text-uppercase mr-2 px-4 w-100 boton'
+                                    className='buttonCartDelete w-100 m-0 mb-2'/* 'btn btn-secondary text-uppercase mr-2 px-4 w-100 boton' */
                                 >
                                     Continuar Comprando
                                 </button>
@@ -80,7 +82,7 @@ const Counter = ({product, setInCart, inCart}) => {
                             </>
                         ) : (
                             <button 
-                                className='btn btn-primary text-uppercase mr-2 my-2 px-4 w-100 boton' 
+                                className='buttonCart w-100 m-0'/* 'btn btn-primary text-uppercase mr-2 my-2 px-4 w-100 boton' */ 
                                 disabled={(qty > product.stock) || qty <= 0}
                                 onClick={() => toCart()}
                             >
