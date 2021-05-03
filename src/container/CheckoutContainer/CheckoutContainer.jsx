@@ -13,6 +13,7 @@ const CheckoutContainer = (props) => {
     const [ciudad, setCiudad] = useState('')
     const [postal, setPostal] = useState('')
     const [pais, setPais] = useState('')
+    const [orderLoading, setOrderLoading] = useState(false) 
 
     const [error, setError] = useState('')
 
@@ -37,14 +38,21 @@ const CheckoutContainer = (props) => {
                 ciudad,
                 postal,
                 pais,
-                cart
+                cart,
+                totalPrice: cart.reduce((a,c) => a+c.qty*c.price, 0)
             }
+
+            setOrderLoading(true)
 
             const newOrder = await db.collection('users').doc(user.email).collection('orders').add(order)
             
+            setOrderLoading(false)
+
             history.push(`/placeorder/${newOrder.id}`)
 
         }catch(error){
+
+            setOrderLoading(false)
             console.log(error)
         }
     }
@@ -139,8 +147,17 @@ const CheckoutContainer = (props) => {
                         />
                         {error === 'country' && <span className='text-danger mb-1'>Ingrese un país válido</span>}
 
-                        <input type='submit' value='Continuar'/>
-                        
+                        {
+                            orderLoading ?
+                            (
+                                <div className="fa-3x text-center my-2">
+                                    <i className="fas fa-spinner fa-pulse text-primary"></i>
+                                </div>
+                            ) : (
+                                <input type='submit' value='Continuar'/>
+                            )
+                        }
+                                                
                     </form>
                 </div>
             </div>

@@ -66,11 +66,11 @@ const Counter = ({product, setInCart, inCart}) => {
                         (
                             <>
                             <Link to='/cart'>
-                            <button
-                                className='buttonCart w-100 m-0 mb-2'/* 'btn btn-primary text-uppercase mr-2 my-2 px-4 w-100 boton' */
-                            >
-                                Finalizar Compra
-                            </button>
+                                <button
+                                    className='buttonCart w-100 m-0 mb-2'/* 'btn btn-primary text-uppercase mr-2 my-2 px-4 w-100 boton' */
+                                >
+                                    Finalizar Compra
+                                </button>
                             </Link>
                             <Link to='/'>
                                 <button

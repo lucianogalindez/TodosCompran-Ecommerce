@@ -11,6 +11,7 @@ import CheckoutContainer from './container/CheckoutContainer/CheckoutContainer';
 import HomeContainer from './container/HomeContainer';
 import ItemDetail from './container/ItemDetail/ItemDetail';
 import LoginContainer from './container/LoginContainer/LoginContainer';
+import PlaceOrderScreen from './container/PlaceOrderScreen/PlaceOrderScreen';
 
 function App(props) {
 
@@ -56,6 +57,8 @@ function App(props) {
           path='/shipping' 
           component={(props) => <CheckoutContainer {...props} setActualLocation={setActualLocation}/>} 
         ></Route>
+
+        <Route path='/placeorder/:id' component={PlaceOrderScreen}></Route>
 
       </Switch>
 
