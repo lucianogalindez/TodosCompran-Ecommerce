@@ -39,7 +39,8 @@ const CheckoutContainer = (props) => {
                 postal,
                 pais,
                 cart,
-                totalPrice: cart.reduce((a,c) => a+c.qty*c.price, 0)
+                totalPrice: cart.reduce((a,c) => a+c.qty*c.price, 0),
+                status: 'NOT PAID'
             }
 
             setOrderLoading(true)

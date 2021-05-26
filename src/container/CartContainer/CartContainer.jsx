@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { TiendaContext } from '../../context/TiendaContext'
 import { UserContext } from '../../context/UserContext'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import './CartContainer.css'
 
@@ -41,11 +41,11 @@ const CartContainer = () => {
                                 cart.map(item => (
                                     <div key={item.id} className='d-flex flex-column mb-5'>
                                         <div className='d-flex flex-wrap align-items-center justify-content-evenly p-1 mb-1'>
-                                            <img src={item.image} alt='' height='70'/>
+                                            <Link to={`/producto/${item.id}`}><img src={item.image} alt='' height='70'/></Link>
                                             <h5 className='small'>
                                                 {
                                                     truncate(item.name, 15)
-                                                }
+                                                }   
                                             </h5>
                                             <h6 className='text-danger mx-1'>{item.qty} x ${item.price}</h6>
                                         </div>

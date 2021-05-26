@@ -139,7 +139,7 @@ const LoginContainer = (props) => {
 
                                     <p className='text-muted mb-1'>
                                         {
-                                            isUser ? '¿ No tienes una cuenta ?' : '¿ Ya tienes una cuenta ?'
+                                            isUser ? '  ' : '¿ Ya tienes una cuenta ?'
                                         }
                                     </p>
 

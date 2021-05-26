@@ -37,6 +37,12 @@ const Navbar = () => {
                             </ul>
                         </li>
                         <li className="nav-item">
+                            <Link to='/orders' style={{textDecoration: 'none'}}><span className="nav-link">Ordenes</span></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to='/cart'><span className="nav-link"><CartWidget/></span></Link>
+                        </li>
+                        <li className="nav-item">
                             {
                                 user.active ? (
                                     <span 
@@ -53,9 +59,6 @@ const Navbar = () => {
                                     </Link>
                                 )
                             }
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/cart'><span className="nav-link"><CartWidget/></span></Link>
                         </li>
                         
                     </ul>
